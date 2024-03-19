@@ -3,6 +3,7 @@ package br.senai.sp.jandira.mytrips
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -17,6 +18,8 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -25,6 +28,7 @@ import androidx.compose.material.icons.filled.Call
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Button
@@ -44,6 +48,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.layout.VerticalAlignmentLine
 import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -66,14 +72,13 @@ class MainActivity : ComponentActivity() {
                 ) {
                     login()
                     SignUp()
+                    Home()
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting() {}
 
 @Composable
 fun login(){
@@ -224,7 +229,6 @@ fun login(){
 fun SignUp(){
 
 
-
     Column{
         Row(
             modifier = Modifier
@@ -288,7 +292,7 @@ fun SignUp(){
                 Image(painter = painterResource(id = R.drawable.photo_add), contentDescription = "",
                     modifier = Modifier
                         .size(width = 40.dp, height = 50.dp)
-                        .offset(x = (45.dp)  , y = (40.dp) )
+                        .offset(x = (45.dp), y = (40.dp))
                 )
 
             }
@@ -457,7 +461,88 @@ fun SignUp(){
 
     }
 
+@Composable
+fun Home(){
+    Column(
+    ) {
+        Box (
+            modifier = Modifier
+                .height(250.dp)
+                .fillMaxWidth()
+            
+        ){
+            Image(painter = painterResource(id = R.drawable.paris), contentDescription = "foto de paris",
+                contentScale = ContentScale.Crop,
+                modifier = Modifier.fillMaxSize()
+            )
 
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 14.dp, end = 20.dp),
+                horizontalAlignment = Alignment.End
+
+            ){
+                Card (
+                    modifier = Modifier.size(width = 80.dp, height = 80.dp),
+                    border = BorderStroke(width = 2.dp, Color.White),
+                    shape = CircleShape
+                ) {
+                    Image(painter = painterResource(R.drawable.ye), contentDescription = "", contentScale = ContentScale.Crop )
+
+                }
+                Text(text = "Ye",
+                    color = Color.White,
+                    modifier = Modifier
+                        .padding(end = 30.dp, top = 10.dp)
+                )
+
+                Spacer(modifier = Modifier.height(40.dp))
+
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 20.dp)
+
+                ) {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically
+
+                    ) {
+                        Icon(imageVector = Icons.Default.LocationOn, contentDescription = "",
+                            tint = Color.White,
+
+                            )
+                        Text(text = "You`re in Paris",
+                            color = Color.White,
+                            fontSize = 20.sp)
+                    }
+
+
+                    Text(text = "My Trips",
+                        color = Color.White,
+                        fontWeight = FontWeight.ExtraBold,
+                        fontSize = 26.sp,
+                        modifier = Modifier
+                            .padding(start = 8.dp)
+
+
+                    )
+                }
+
+            }
+
+        }
+
+        LazyColumn{
+
+        }
+
+
+
+
+    }
+}
 
 
 @Preview(showBackground = true, showSystemUi = true)
@@ -474,5 +559,13 @@ fun SignUpPreview(){
 fun loginPreview(){
     MyTripsTheme {
         login()
+    }
+}
+
+@Preview(showBackground = true, showSystemUi = true)
+@Composable
+fun HomePreview(){
+    MyTripsTheme {
+        Home()
     }
 }
