@@ -38,7 +38,7 @@ import androidx.navigation.NavHostController
 import br.senai.sp.jandira.mytrips.ui.theme.MyTripsTheme
 
 @Composable
-fun login(controleDeNavegacao: NavHostController) {
+fun login(controleDeNavegacao: NavHostController?) {
 
     var emailState = remember {
         mutableStateOf("")
@@ -149,7 +149,7 @@ fun login(controleDeNavegacao: NavHostController) {
                 Button(
                     onClick = {
                         if(emailState.value == "teste@gmail.com" && senhaState.value == "1234"){
-                            controleDeNavegacao.navigate("home")
+                            controleDeNavegacao!!.navigate("home")
                         }else{
                             erroState.value = true
                             menssagemErroState.value = "Usuário e senha incorretos!"
@@ -181,7 +181,7 @@ fun login(controleDeNavegacao: NavHostController) {
             ) {
                 Text(text = "Don’t have an account?  ", color = Color(0xFFA09C9C))
                 Text(text = "Sign up", color = Color(0xFFCF06F0), fontWeight = FontWeight.Bold,
-                    modifier = Modifier.clickable { controleDeNavegacao.navigate("signup") }
+                    modifier = Modifier.clickable { controleDeNavegacao!!.navigate("signup") }
                 )
             }
 

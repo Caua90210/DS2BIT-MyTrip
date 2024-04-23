@@ -51,11 +51,11 @@ android {
 
 dependencies {
 
-<<<<<<< HEAD
+
     implementation("androidx.navigation:navigation-compose:2.7.7")
-=======
+
     implementation("androidx.compose.material:material-icons-extended-android:1.6.3")
->>>>>>> 78530332ebcac69bde472458230eceea47f701f1
+
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
     implementation("androidx.activity:activity-compose:1.8.2")
