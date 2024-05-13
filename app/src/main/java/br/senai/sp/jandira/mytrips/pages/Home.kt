@@ -24,6 +24,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -39,6 +41,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -55,7 +58,7 @@ import br.senai.sp.jandira.mytrips.ui.theme.MyTripsTheme
 @Composable
 fun Home(controleDeNavegacao: NavHostController) {
 
-    val viagens = ViagemRepository().listarTodasAsViagens()
+    val viagens = ViagemRepository(LocalContext.current).listarTodasAsViagens()
     val categoria = CategoriaRepository().listarTodasAsCategorias()
 
     var destinyState = remember {
@@ -258,6 +261,25 @@ fun Home(controleDeNavegacao: NavHostController) {
         )
         Spacer(modifier = Modifier.height(15.dp))
 
+        Button(
+            onClick = {
+                controleDeNavegacao.navigate("cadastro")
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 20.dp)
+                .height(50.dp)
+                .padding(bottom = 16.dp),
+            content = {
+                Text(
+                    text = "Add New Trip",
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color.White
+                )
+            },
+
+        )
         LazyColumn() {
             items(viagens) {
 
@@ -278,14 +300,14 @@ fun Home(controleDeNavegacao: NavHostController) {
                                 .fillMaxWidth()
                                 .height(190.dp)
                         ) {
-                            Image(painter = if (it.image == null) painterResource(id = R.drawable.no_image) else it.image!!, contentDescription = "", contentScale = ContentScale.Crop )
+                           // Image(painter = if (it.image == null) painterResource(id = R.drawable.no_image) else it.image!!, contentDescription = "", contentScale = ContentScale.Crop )
                         }
                         Column(
                             modifier = Modifier.padding(8.dp)
                         ) {
-                            Text(text =  "${it.destino},  ${it.dataChegada.year}", color =  Color(0xFFCF06F0), fontSize = 18.sp )
+                            Text(text =  "${it.destino},  ${it.dataChegada}", color =  Color(0xFFCF06F0), fontSize = 18.sp )
                             Text(text = it.descricao, color =  Color(0xFF7A777A), modifier = Modifier.padding(vertical = 6.dp))
-                            Text(text = "${reduzirData(it.dataChegada)} - ${reduzirData(it.dataPartida)}",  color =  Color(0xFFCF06F0), textAlign = TextAlign.End, modifier = Modifier.fillMaxWidth()  )
+                            Text(text = "${(it.dataChegada)} - ${(it.dataPartida)}",  color =  Color(0xFFCF06F0), textAlign = TextAlign.End, modifier = Modifier.fillMaxWidth()  )
                         }
                     }
                 }

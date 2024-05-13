@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">MyTrips</string>
+    <string name="title_new_trip">Nova Viagem</string>
+    <string name="trip_destination">Destino</string>
+    <string name="trip_description">Descrição</string>
+    <string name="trip_arrival_date">Data de Chegada</string>
+    <string name="trip_departure_date">Data de Partida</string>
+    <string name="trip_image_path">Caminho da Imagem</string>
+    <string name="save">Salvar</string>
 </resources>
