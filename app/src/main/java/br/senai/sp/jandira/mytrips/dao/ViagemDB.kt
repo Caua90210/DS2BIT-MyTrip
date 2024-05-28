@@ -4,13 +4,15 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import br.senai.sp.jandira.mytrips.model.Usuarios
 import br.senai.sp.jandira.mytrips.model.Viagem
 
 
-@Database(entities = [Viagem::class], version = 1)
+@Database(entities = [Viagem::class, Usuarios::class], version = 1)
 abstract class ViagemDB : RoomDatabase() {
 
     abstract fun viagemDao(): ViagemDAO
+    abstract  fun UsuarioDAO(): UsuarioDAO
 
     companion object{
         private lateinit var instancia: ViagemDB

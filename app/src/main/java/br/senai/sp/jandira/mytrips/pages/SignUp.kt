@@ -34,6 +34,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -41,7 +42,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import br.senai.sp.jandira.mytrips.R
+import br.senai.sp.jandira.mytrips.model.Usuarios
+import br.senai.sp.jandira.mytrips.model.Viagem
+import br.senai.sp.jandira.mytrips.repository.UsuarioRepository
+import br.senai.sp.jandira.mytrips.repository.ViagemRepository
 import br.senai.sp.jandira.mytrips.ui.theme.MyTripsTheme
 
 @Composable
@@ -69,7 +75,7 @@ fun SignUp(controleDeNavegacao: NavHostController) {
         mutableStateOf("")
     }
 
-
+    val usuariosRepository = UsuarioRepository(LocalContext.current)
     Column{
         Row(
             modifier = Modifier
@@ -103,7 +109,7 @@ fun SignUp(controleDeNavegacao: NavHostController) {
                 Text(
                     text = "Sign Up",
                     color = Color(0xFFCF06F0),
-                    fontSize = 40.sp,
+                    fontSize = 36.sp,
                     fontWeight = FontWeight.Black,
                     modifier = Modifier.fillMaxWidth(),
                     textAlign = TextAlign.Center
@@ -118,22 +124,22 @@ fun SignUp(controleDeNavegacao: NavHostController) {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(200.dp),
+                    .height(120.dp),
                 contentAlignment = Alignment.Center
             ){
                 Image(painter = painterResource(id = R.drawable.ellipse), contentDescription = "",
                     modifier = Modifier
-                        .size(width = 120.dp, height = 370.dp)
+                        .size(width = 90.dp, height = 270.dp)
                 )
                 Image(painter = painterResource(id = R.drawable.profile), contentDescription = "",
                     modifier = Modifier
-                        .size(width = 80.dp, height = 140.dp)
+                        .size(width = 60.dp, height = 90.dp)
 
                 )
                 Image(painter = painterResource(id = R.drawable.photo_add), contentDescription = "",
                     modifier = Modifier
-                        .size(width = 40.dp, height = 50.dp)
-                        .offset(x = (45.dp), y = (40.dp))
+                        .size(width = 40.dp, height = 30.dp)
+                        .offset(x = (30.dp), y = (40.dp))
                 )
 
             }
@@ -256,12 +262,19 @@ fun SignUp(controleDeNavegacao: NavHostController) {
             ){
                 Button(
                     onClick = {
-                        if (nameState.value == "user" && phoneState.value == "9999-9999" && emailState.value == "teste@gmail.com" && senhaState.value == "1234"){
-                            controleDeNavegacao.navigate("home")
-                        }else{
-                            erroState.value = true
-                            mensagemErroState.value = "Usuário e senha incorretos!"
-                        }
+
+                        val novoUsuario = Usuarios(
+                            nome = nameState.value,
+                            phone = phoneState.value,
+                            email = emailState.value,
+                            password = senhaState.value,
+                            over18 = checkState.value
+                        )
+
+                        // Salvar a nova viagem no repositório
+                        usuariosRepository.salvar(novoUsuario)
+
+                        controleDeNavegacao.navigate("login")
 
                     },
                     colors = ButtonDefaults.buttonColors(Color(0xFFCF06F0)),
