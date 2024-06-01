@@ -161,8 +161,7 @@ fun login(controleDeNavegacao: NavHostController?) {
                     onClick = {
                         scope.launch {
                             if (usuarios != null) {
-                                val usuarioID = usuarios.nome
-                                controleDeNavegacao?.navigate("home/$usuarioID")
+                                controleDeNavegacao?.navigate("home")
                             } else {
                                 erroState.value = true
                                 mensagemErroState.value = "Usuário e senha incorretos!"

@@ -42,12 +42,11 @@ import java.io.FileNotFoundException
 
 
 @Composable
-fun Home(controleDeNavegacao: NavHostController, usuarioID:String) {
+fun Home(controleDeNavegacao: NavHostController) {
 
     val context = LocalContext.current
     val viagens = ViagemRepository(LocalContext.current).listarTodasAsViagens()
     val categoria = CategoriaRepository().listarTodasAsCategorias()
-    var categoriaSelecionada by remember { mutableStateOf(0) }
     var destinyState = remember {
         mutableStateOf("")
     }
@@ -100,7 +99,7 @@ fun Home(controleDeNavegacao: NavHostController, usuarioID:String) {
                         )
                     }
                     Text(
-                        text = "$usuarioID",
+                        text = "Ye",
                         color = Color.White,
                         modifier = Modifier
                             .padding(end = 30.dp, top = 5.dp)

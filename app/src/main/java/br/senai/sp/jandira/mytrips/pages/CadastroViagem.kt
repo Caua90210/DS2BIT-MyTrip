@@ -114,26 +114,26 @@ fun FormularioViagem(controleDeNavegacao: NavHostController) {
         )
 
         Spacer(modifier = Modifier.height(16.dp))
-        AnimatedVisibility(
-            visible = imagemUri != null,
-            enter = fadeIn(animationSpec = tween(durationMillis = 300)),
-            exit = fadeOut(animationSpec = tween(durationMillis = 300))
-        ) {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(150.dp)
-                    .padding(horizontal = 8.dp, vertical = 4.dp)
-                    .clip(shape = RoundedCornerShape(16.dp))
-            ) {
-                Image(
-                    painter = rememberImagePainter(imagemUri),
-                    contentDescription = null,
-                    modifier = Modifier.fillMaxSize(),
-                    contentScale = ContentScale.Crop // Para garantir que a imagem preencha o espaço corretamente
-                )
-            }
-        }
+//        AnimatedVisibility(
+//            visible = imagemUri != null,
+//            enter = fadeIn(animationSpec = tween(durationMillis = 300)),
+//            exit = fadeOut(animationSpec = tween(durationMillis = 300))
+//        ) {
+//            Box(
+//                modifier = Modifier
+//                    .fillMaxWidth()
+//                    .height(150.dp)
+//                    .padding(horizontal = 8.dp, vertical = 4.dp)
+//                    .clip(shape = RoundedCornerShape(16.dp))
+//            ) {
+//                Image(
+//                    painter = rememberImagePainter(imagemUri),
+//                    contentDescription = null,
+//                    modifier = Modifier.fillMaxSize(),
+//                    contentScale = ContentScale.Crop // Para garantir que a imagem preencha o espaço corretamente
+//                )
+//            }
+//        }
         Spacer(modifier = Modifier.height(16.dp))
 
 

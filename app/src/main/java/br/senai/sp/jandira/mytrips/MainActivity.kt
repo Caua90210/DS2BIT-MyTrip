@@ -29,9 +29,8 @@ class MainActivity : ComponentActivity() {
                     NavHost(navController = controleDeNavegacao, startDestination = "login") {
                         composable(route = "login") { login(controleDeNavegacao) }
                         composable(route = "signup") { SignUp(controleDeNavegacao) }
-                        composable(route = "home/{usuarioID}") { backStackEntry ->
-                            val nomeUsuario = backStackEntry.arguments?.getString("usuarioID") ?: ""
-                            Home(controleDeNavegacao, nomeUsuario)
+                        composable(route = "home") {
+                            Home(controleDeNavegacao)
                         }
                         composable(route = "cadastro") { FormularioViagem(controleDeNavegacao) }
                     }
