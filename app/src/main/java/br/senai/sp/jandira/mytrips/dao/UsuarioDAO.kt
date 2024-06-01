@@ -14,6 +14,8 @@ interface UsuarioDAO {
         @Insert
         fun salvar(usuarios: Usuarios): Long
 
+
+
         @Update
         fun atualizar(usuarios: Usuarios): Int
 
@@ -23,6 +25,12 @@ interface UsuarioDAO {
         @Query("SELECT * FROM tbl_usuarios ORDER BY nome ASC")
         fun listarTodosOsUsuarios(): List<Usuarios>
 
+        @Query("SELECT * FROM tbl_usuarios WHERE email = :email AND password = :password LIMIT 1")
+        fun buscarPorEmailESenha(email: String, password: String): Usuarios?
+
+
+       @Query("SELECT * FROM tbl_usuarios WHERE id = :id")
+         fun buscarPorId(id: Long): Usuarios?
 
 
 }

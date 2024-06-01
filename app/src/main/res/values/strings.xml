@@ -1,10 +1,36 @@
+
 <resources>
     <string name="app_name">MyTrips</string>
-    <string name="title_new_trip">Nova Viagem</string>
-    <string name="trip_destination">Destino</string>
-    <string name="trip_description">Descrição</string>
-    <string name="trip_arrival_date">Data de Chegada</string>
-    <string name="trip_departure_date">Data de Partida</string>
-    <string name="trip_image_path">Caminho da Imagem</string>
-    <string name="save">Salvar</string>
+    <string name="title_new_trip">New Trip</string>
+    <string name="trip_destination">Destination</string>
+    <string name="trip_description">Description</string>
+    <string name="trip_arrival_date">Arrival Date</string>
+    <string name="trip_departure_date">Departure Date</string>
+    <string name="trip_image_path">Image Path</string>
+    <string name="save">Save</string>
+    <string name="login">Login</string>
+    <string name="please_sign_in_to_continue">Please sign in to continue.</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="dont_have_an_account">Don\'t have an account?</string>
+    <string name="sing_up">Sign Up</string>
+    <string name="username">Username</string>
+    <string name="phone">Phone</string>
+    <string name="over">Over 18?</string>
+    <string name="create_account">CREATE ACCOUNT</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="create_a_new_account">Create a new account</string>
+    <string name="search">Search your destiny</string>
+    <string name="categories">Categories</string>
+    <string name="my_trips">My Trips</string>
+    <string name="you_re_in_paris">You\'re in Paris</string>
+    <string name="montain">Mountain</string>
+    <string name="snow">Snow</string>
+    <string name="forest">Forest</string>
+    <string name="city">City</string>
+    <string name="desert">Desert</string>
+    <string name="beach">Beach</string>
+    <string name="past_trips">Past Trips</string>
+    <string name="cannot_find_user">Incorrect username or password!</string>
 </resources>

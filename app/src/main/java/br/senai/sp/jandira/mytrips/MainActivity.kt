@@ -16,25 +16,24 @@ import br.senai.sp.jandira.mytrips.pages.SignUp
 import br.senai.sp.jandira.mytrips.pages.login
 import br.senai.sp.jandira.mytrips.ui.theme.MyTripsTheme
 
-
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             MyTripsTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-
                     val controleDeNavegacao = rememberNavController()
                     NavHost(navController = controleDeNavegacao, startDestination = "login") {
                         composable(route = "login") { login(controleDeNavegacao) }
                         composable(route = "signup") { SignUp(controleDeNavegacao) }
-                        composable(route = "home") { Home(controleDeNavegacao) }
+                        composable(route = "home/{usuarioID}") { backStackEntry ->
+                            val nomeUsuario = backStackEntry.arguments?.getString("usuarioID") ?: ""
+                            Home(controleDeNavegacao, nomeUsuario)
+                        }
                         composable(route = "cadastro") { FormularioViagem(controleDeNavegacao) }
-
                     }
                 }
             }

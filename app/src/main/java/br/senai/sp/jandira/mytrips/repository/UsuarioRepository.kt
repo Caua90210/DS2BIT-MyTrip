@@ -28,4 +28,12 @@ class UsuarioRepository(context: Context) {
 //        return listOf(londres)
     }
 
+    fun buscarPorEmailESenha(email: String, password: String): Usuarios? {
+        return db.buscarPorEmailESenha(email, password)
+    }
+
+    fun buscarPorId(id: Long): Usuarios? {
+        return db.buscarPorId(id)
+    }
+
 }

@@ -1,5 +1,6 @@
 package br.senai.sp.jandira.mytrips.model
 
+import android.net.Uri
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -13,5 +14,5 @@ data class Viagem(
     var descricao: String = "",
     @ColumnInfo(name = "data_chegada") var dataChegada: String = "",
     @ColumnInfo(name = "data_partida") var dataPartida: String = "",
-    @ColumnInfo(name = "imagem_path") var image: String? = null
+    var image: Uri?
 )

@@ -4,20 +4,22 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import br.senai.sp.jandira.mytrips.model.Usuarios
 import br.senai.sp.jandira.mytrips.model.Viagem
 
 
-@Database(entities = [Viagem::class, Usuarios::class], version = 1)
+@Database(entities = [Viagem::class, Usuarios::class], version = 3)
+@TypeConverters(Converters::class)
 abstract class ViagemDB : RoomDatabase() {
 
     abstract fun viagemDao(): ViagemDAO
-    abstract  fun UsuarioDAO(): UsuarioDAO
+    abstract fun UsuarioDAO(): UsuarioDAO
 
-    companion object{
+    companion object {
         private lateinit var instancia: ViagemDB
 
-        fun getBancoDeDados(context: Context): ViagemDB{
+        fun getBancoDeDados(context: Context): ViagemDB {
             instancia = Room
                 .databaseBuilder(
                     context,
@@ -30,7 +32,5 @@ abstract class ViagemDB : RoomDatabase() {
 
             return instancia
         }
-
     }
-
 }

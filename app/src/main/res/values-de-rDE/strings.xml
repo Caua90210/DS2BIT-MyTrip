@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <resources>
+        <string name="app_name">Meine Reisen</string>
+        <string name="title_new_trip">Neue Reise</string>
+        <string name="trip_destination">Ziel</string>
+        <string name="trip_description">Beschreibung</string>
+        <string name="trip_arrival_date">Ankunftsdatum</string>
+        <string name="trip_departure_date">Abreisedatum</string>
+        <string name="trip_image_path">Bildpfad</string>
+        <string name="save">Speichern</string>
+        <string name="login">Anmelden</string>
+        <string name="please_sign_in_to_continue">Bitte melden Sie sich an, um fortzufahren.</string>
+        <string name="email">E-Mail</string>
+        <string name="password">Passwort</string>
+        <string name="sign_in">Anmelden</string>
+        <string name="dont_have_an_account">Sie haben kein Konto?</string>
+        <string name="sing_up">Registrieren</string>
+        <string name="username">Benutzername</string>
+        <string name="phone">Telefon</string>
+        <string name="over">Über 18?</string>
+        <string name="create_account">KONTO ERSTELLEN</string>
+        <string name="already_have_an_account">Sie haben bereits ein Konto?</string>
+        <string name="create_a_new_account">Ein neues Konto erstellen</string>
+        <string name="search">Suchen Sie Ihr Ziel</string>
+        <string name="categories">Kategorien</string>
+        <string name="my_trips">Meine Reisen</string>
+        <string name="you_re_in_paris">Sie sind in Paris</string>
+        <string name="montain">Berg</string>
+        <string name="snow">Schnee</string>
+        <string name="beach">Strand</string>
+        <string name="past_trips">Vergangene Reisen</string>
+        <string name="cannot_find_user">Falscher Benutzername oder Passwort!</string>
+    <string name="forest">Wald</string>
+    <string name="city">Stadt</string>
+    <string name="desert">Wüste</string>
+
+    </resources>
+

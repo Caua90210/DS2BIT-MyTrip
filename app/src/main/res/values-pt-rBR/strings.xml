@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <resources>
+        <string name="app_name">Minhas Viagens</string>
+        <string name="title_new_trip">Nova Viagem</string>
+        <string name="trip_destination">Destino</string>
+        <string name="trip_description">Descrição</string>
+        <string name="trip_arrival_date">Data de Chegada</string>
+        <string name="trip_departure_date">Data de Partida</string>
+        <string name="trip_image_path">Caminho da Imagem</string>
+        <string name="save">Salvar</string>
+        <string name="login">Entrar</string>
+        <string name="please_sign_in_to_continue">Por favor, faça login para continuar.</string>
+        <string name="email">E-mail</string>
+        <string name="password">Senha</string>
+        <string name="sign_in">Entrar</string>
+        <string name="dont_have_an_account">Não tem uma conta?</string>
+        <string name="sing_up">Cadastre-se</string>
+        <string name="username">Nome de Usuário</string>
+        <string name="phone">Telefone</string>
+        <string name="over">Maior de 18 anos?</string>
+        <string name="create_account">CRIAR CONTA</string>
+        <string name="already_have_an_account">Já tem uma conta?</string>
+        <string name="create_a_new_account">Criar uma nova conta</string>
+        <string name="search">Pesquise seu destino</string>
+        <string name="categories">Categorias</string>
+        <string name="my_trips">Minhas Viagens</string>
+        <string name="you_re_in_paris">Você está em Paris</string>
+        <string name="montain">Montanha</string>
+        <string name="snow">Neve</string>
+        <string name="beach">Praia</string>
+        <string name="past_trips">Viagens Anteriores</string>
+        <string name="cannot_find_user">Usuário e senha incorretos!</string>
+    <string name="forest">Floresta</string>
+    <string name="city">Cidade</string>
+    <string name="desert">Deserto</string>
+    </resources>
