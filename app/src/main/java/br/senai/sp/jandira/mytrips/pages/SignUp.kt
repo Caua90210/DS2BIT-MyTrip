@@ -48,6 +48,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -157,9 +158,9 @@ fun SignUp(controleDeNavegacao: NavHostController) {
                 ) {
                     Button(
                         onClick = { getContent.launch("image/*") },
-                        modifier = Modifier.fillMaxSize(),  // Botão ocupa todo o espaço da Card
+                        modifier = Modifier.fillMaxSize(),
                         shape = CircleShape,
-                        colors = ButtonDefaults.buttonColors(containerColor = Color.White)  // Botão com fundo transparente
+                        colors = ButtonDefaults.buttonColors(containerColor = Color.White)
                     ) {
                         Box(
                             contentAlignment = Alignment.Center,
@@ -169,35 +170,35 @@ fun SignUp(controleDeNavegacao: NavHostController) {
                         ) {
                             if (imagemUri != null) {
                                 Image(
-                                    painter = rememberImagePainter(imagemUri),
+                                    painter = rememberImagePainter(imagemUri!!),
                                     contentDescription = "",
                                     contentScale = ContentScale.Crop,
                                     modifier = Modifier
-                                        .fillMaxSize()  // Ajusta a altura e largura da imagem para preencher o Box
+                                        .fillMaxSize()
                                         .zIndex(1f)
-                                          // Define a ordem de empilhamento
+
                                 )
                             } else {
                                 Image(
                                     painter = painterResource(id = R.drawable.ellipse),
                                     contentDescription = "",
                                     modifier = Modifier
-                                        .fillMaxSize()  // Ajusta a altura e largura da imagem para preencher o Box
-                                        .zIndex(1f)  // Define a ordem de empilhamento
+                                        .fillMaxSize()
+                                        .zIndex(1f)
                                 )
                                 Image(
                                     painter = painterResource(id = R.drawable.profile),
                                     contentDescription = "",
                                     modifier = Modifier
-                                        .size(70.dp)  // Ajustando tamanho da imagem
-                                        .zIndex(2f)  // Define a ordem de empilhamento
+                                        .size(70.dp)
+                                        .zIndex(2f)
                                 )
                                 Image(
                                     painter = painterResource(id = R.drawable.photo_add),
                                     contentDescription = "",
                                     modifier = Modifier
-                                        .size(30.dp)  // Ajustando tamanho da imagem
-                                        .zIndex(3f)  // Define a ordem de empilhamento
+                                        .size(30.dp)
+                                        .zIndex(3f)
                                         .offset(x = 40.dp, y = 30.dp)
                                 )
                             }
@@ -405,4 +406,7 @@ fun SignUp(controleDeNavegacao: NavHostController) {
         }
     }
 }}
-
+@Composable
+fun rememberImagePainter(imagemUri: Uri): Painter {
+    return rememberImagePainter(imagemUri)
+}
